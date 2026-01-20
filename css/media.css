@@ -1,0 +1,213 @@
+/* ======================================================
+   media.css - Full Responsive Breakpoints
+   Project: Web Developer Portfolio
+   Breakpoints: Desktop / Laptop / Tablet / Mobile
+   ====================================================== */
+
+/* ============ Large Desktop (1400px and above) ============ */
+@media (min-width: 1400px){
+  .container{
+    max-width: 1250px;
+  }
+  .hero-left h1{
+    font-size: 60px;
+  }
+  .projects-grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============ Desktop & Laptop (1200px - 1399px) ============ */
+@media (max-width: 1399px){
+  .container{
+    max-width: 1120px;
+  }
+  .hero-grid{
+    gap: 20px;
+  }
+}
+
+/* ============ Laptop (992px - 1199px) ============ */
+@media (max-width: 1199px){
+  .container{
+    max-width: 960px;
+  }
+
+  .hero-left h1{
+    font-size: 44px;
+  }
+
+  .stat{
+    min-width: 110px;
+  }
+
+  .projects-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============ Tablet (768px - 991px) ============ */
+@media (max-width: 991px){
+
+  /* Layout stacks */
+  .hero-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .hero-right{
+    order: -1; /* image first on tablet */
+  }
+
+  .about-grid,
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid,
+  .cards-grid,
+  .testimonials-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid{
+    grid-template-columns: 1fr;
+  }
+
+  /* Navbar */
+  .menu{ display: none; }
+  .hamburger{ display: flex; }
+
+  /* Buttons */
+  .hero-btns{
+    flex-wrap: wrap;
+  }
+
+  /* Hero stats */
+  .hero-stats{
+    flex-wrap: wrap;
+  }
+  .stat{
+    flex: 1;
+    min-width: 160px;
+  }
+
+  /* Footer */
+  .footer-grid{
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ============ Mobile (576px - 767px) ============ */
+@media (max-width: 767px){
+
+  .section{
+    padding: 60px 0;
+  }
+
+  .section-head h2{
+    font-size: 28px;
+  }
+
+  .hero{
+    padding: 40px 0 15px;
+  }
+
+  .hero-left h1{
+    font-size: 34px;
+  }
+
+  .hero-mini{
+    font-size: 14px;
+  }
+
+  .hero-img-wrap{
+    height: 240px;
+  }
+
+  .btn{
+    padding: 11px 14px;
+    font-size: 14px;
+  }
+
+  .hero-stats{
+    gap: 12px;
+  }
+  .stat{
+    min-width: 140px;
+  }
+
+  .project-thumb{
+    height: 170px;
+  }
+
+  .modal-image{
+    height: 260px;
+  }
+
+  .scroll-top{
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+}
+
+/* ============ Small Mobile (0px - 575px) ============ */
+@media (max-width: 575px){
+
+  .container{
+    padding: 0 14px;
+  }
+
+  .logo{
+    font-size: 16px;
+  }
+
+  .icon-btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .hero-left h1{
+    font-size: 30px;
+  }
+
+  .hero-subtitle{
+    font-size: 14px;
+  }
+
+  .stat{
+    min-width: 100%;
+  }
+
+  .about-card,
+  .skill-card,
+  .mini-card,
+  .testimonial,
+  .contact-card,
+  .contact-form{
+    padding: 18px;
+  }
+
+  .project-body{
+    padding: 14px;
+  }
+
+  .modal-body{
+    padding: 16px;
+  }
+
+  .modal-actions{
+    flex-direction: column;
+  }
+
+  .modal-close{
+    width: 42px;
+    height: 42px;
+  }
+}
