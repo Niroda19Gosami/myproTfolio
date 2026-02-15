@@ -1,323 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raju | Web Developer Portfolio</title>
-    <!-- bootstrap css -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
-    <!-- custom css -->
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/media.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raju | Frontend Portfolio</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/media.css">
 </head>
 <body>
-  <!-- ===== Header / Navbar ===== -->
   <header class="header" id="header">
     <div class="container nav">
       <a class="logo" href="#home">Raju<span>.</span></a>
 
       <nav class="menu" id="menu">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#academic">Academic</a>
-        <a href="#certificates">Certificates</a>
         <a href="#projects">Projects</a>
-        <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <button class="icon-btn" id="themeToggle" aria-label="Toggle Theme">🌙</button>
-        <button class="icon-btn hamburger" id="hamburger" aria-label="Open Menu">☰</button>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle Theme">&#9789;</button>
+        <button class="icon-btn hamburger" id="hamburger" aria-label="Open Menu">&#9776;</button>
       </div>
     </div>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
+      <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#academic">Academic</a>
-      <a href="#certificates">Certificates</a>
       <a href="#projects">Projects</a>
-      <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
     </div>
   </header>
 
-  <!-- ===== Hero ===== -->
   <section class="hero" id="home">
     <div class="container hero-grid">
-
       <div class="hero-left reveal">
-        <p class="badge">WEB DEVELOPER</p>
+        <p class="badge">Frontend Developer</p>
         <h1>
-          Building modern <span>web experiences</span> that convert and perform.
+          Building clean and practical
+          <span>web experiences</span>
         </h1>
         <p class="hero-subtitle">
-          I design and develop clean, fast and responsive websites. Focused on UI polish,
-          performance optimization, and maintainable code.
+          I create responsive websites focused on clear structure, fast performance, and
+          polished user interfaces that are easy to maintain.
         </p>
 
-      <div class="hero-btns">
-  <a class="btn btn-primary" href="#projects">View Projects</a>
-
-  <a class="btn btn-outline" href="#contact">Hire Me</a>
-
-  <!-- Download CV -->
-  <a class="btn btn-soft" href="assets/cv/NIRODA_135.pdf" download>
-    Download CV
-  </a>
-</div>
-
+        <div class="hero-btns">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-outline" href="#contact">Hire Me</a>
+          <a class="btn btn-soft" href="assets/cv/NIRODA_135.pdf" download>Download CV</a>
+        </div>
 
         <div class="hero-stats">
           <div class="stat">
             <h3>15+</h3>
-            <p>Projects</p>
+            <p>Projects Built</p>
           </div>
           <div class="stat">
-            <h3>1+</h3>
-            <p>Years</p>
+            <h3>1+ Yr</h3>
+            <p>Learning and Work</p>
           </div>
           <div class="stat">
-            <h3>10+</h3>
-            <p>Clients</p>
+            <h3>100%</h3>
+            <p>Mobile Responsive</p>
           </div>
         </div>
       </div>
 
       <div class="hero-right reveal">
-        <div class="hero-card">
+        <div class="profile-card">
           <div class="hero-img-wrap">
-            <img class="hero-img"
-              src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop"
-              alt="Developer" />
+            <img class="hero-img" src="./images/profile-img.png" alt="Raju profile image">
           </div>
-
           <div class="hero-mini">
-            <p><strong>Available for:</strong> Freelance / Job</p>
-            <p><strong>Location:</strong> India</p>
-            <p><strong>Stack:</strong> HTML • CSS • JS • Bootstrap</p>
+            <div class="hero-mini-item">
+              <span class="hero-mini-label">Name</span>
+              <span class="hero-mini-value">Raju</span>
+            </div>
+            <div class="hero-mini-item">
+              <span class="hero-mini-label">Role</span>
+              <span class="hero-mini-value">Frontend Web Developer</span>
+            </div>
+            <div class="hero-mini-item">
+              <span class="hero-mini-label">Location</span>
+              <span class="hero-mini-value">India</span>
+            </div>
+            <div class="hero-mini-item hero-mini-item-stack">
+              <span class="hero-mini-label">Stack</span>
+              <span class="hero-mini-value">HTML, CSS, JavaScript, Bootstrap</span>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ===== About ===== -->
   <section class="section" id="about">
     <div class="container">
       <div class="section-head reveal">
         <h2>About Me</h2>
         <p>
-          I'm a passionate web developer creating modern websites with clean UI, responsive design and real-world usability.
+          A CV-style overview with my profile, skills, academics, and activities.
         </p>
       </div>
 
-      <div class="about-grid">
-        <div class="about-card reveal">
-          <h3>Who I am</h3>
+      <div class="cv-grid">
+        <article class="cv-card cv-intro reveal">
+          <h3>Who I Am</h3>
           <p>
-            I'm <strong>Raju</strong>, a web developer focused on building beautiful, fast,
-            and user-friendly websites. I enjoy turning complex problems into simple, elegant solutions.
+            I am a passionate frontend developer focused on building elegant and usable websites.
+            I enjoy turning ideas into clear interfaces with clean code and responsive layouts.
           </p>
-          <ul class="about-list">
-            <li>✅ Clean code & best practices</li>
-            <li>✅ Mobile-first responsive UI</li>
-            <li>✅ SEO friendly structure</li>
-            <li>✅ Performance & speed optimization</li>
+          <ul class="cv-list">
+            <li>Strong focus on UI consistency and code quality</li>
+            <li>Mobile-first development approach</li>
+            <li>Performance, SEO basics, and accessibility awareness</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="about-card reveal">
-          <h3>What I do</h3>
-          <div class="service">
-            <span class="dot"></span>
-            <div>
-              <h4>Frontend Development</h4>
-              <p>Modern UI with HTML/CSS/JS, Bootstrap and animations.</p>
+        <article class="cv-card reveal">
+          <h3>Skills</h3>
+          <div class="tags">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>Bootstrap</span>
+            <span>Responsive Design</span>
+            <span>Git and GitHub</span>
+            <span>VS Code</span>
+            <span>UI Redesign</span>
+          </div>
+        </article>
+
+        <article class="cv-card reveal">
+          <h3>Academics</h3>
+          <div class="cv-timeline">
+            <div class="cv-item">
+              <h4>B.Tech - Computer Science & Engineering</h4>
+              <p class="muted">Graduation Year: 2024</p>
+              <p>Program focused on core computer science concepts, programming, databases and web technologies.</p>
+            </div>
+            <div class="cv-item">
+              <h4>Higher Secondary Education [10+2]</h4>
+              <p class="muted">Passing Year: 2020</p>
+              <p>Completed with Subjects like Physics, Chemistry, Mathematics, Biology.</p>
+            </div>
+            <div class="cv-item">
+              <h4>Secondary Education [10]</h4>
+              <p class="muted">Passing Year: 2017</p>
+              <p>Completed with Subjects both Arts & Science (Combined).</p>
             </div>
           </div>
-          <div class="service">
-            <span class="dot"></span>
-            <div>
-              <h4>Website UI Redesign</h4>
-              <p>Upgrade old websites to premium modern minimal UI.</p>
-            </div>
-          </div>
-          <div class="service">
-            <span class="dot"></span>
-            <div>
-              <h4>Landing Pages</h4>
-              <p>High conversion landing pages for business and products.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+        </article>
 
+        <article class="cv-card reveal">
+          <h3>Activities</h3>
+          <ul class="cv-list">
+            <li>Completed 9 months FULL stack Webdevelopment Hands-on Tranning course[PHP, LARAVEL, MY-SQL]</li>
+            <li>Participated in Workshop on Explore Knowledge of IOT</li>
+            <li>Participated in Workshop on Career Opportunity in the Corporate World</li>
+            <li>Participated in Workshop on effective communication</li>
+            <li>Participated in Workshop FULL STACK Web development using MEANSTACK</li>
+            <li>Participated in Workshop possess basics knowledge in various programminglanguages, frameworksandsoftware development model</li>
+          </ul>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- ===== Skills ===== -->
-  <section class="section alt" id="skills">
+  <section class="section alt" id="projects">
     <div class="container">
-
-      <div class="section-head reveal">
-        <h2>Skills</h2>
-        <p>Tech stack I use to build scalable and modern websites.</p>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-card reveal">
-          <h3>Frontend</h3>
-          <div class="tags">
-            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap 5</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal">
-          <h3>Tools</h3>
-          <div class="tags">
-            <span>Git/GitHub</span><span>VS Code</span><span>Figma</span><span>Chrome DevTools</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal">
-          <h3>Extras</h3>
-          <div class="tags">
-            <span>Responsive UI</span><span>SEO Basics</span><span>Performance</span><span>Animations</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== Academic ===== -->
-  <section class="section" id="academic">
-    <div class="container">
-
-      <div class="section-head reveal">
-        <h2>Academic</h2>
-        <p>My educational background and learning journey.</p>
-      </div>
-
-      <div class="timeline">
-        <div class="time-card reveal">
-          <div class="time-dot"></div>
-          <h3>Diploma / Degree</h3>
-          <p class="muted">2022 - 2025</p>
-          <p>Computer Science / IT - Focus on web development and software fundamentals.</p>
-        </div>
-
-        <div class="time-card reveal">
-          <div class="time-dot"></div>
-          <h3>Higher Secondary</h3>
-          <p class="muted">2020 - 2022</p>
-          <p>Completed with strong focus on math and computers.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== Certificates & Activities ===== -->
-  <section class="section alt" id="certificates">
-    <div class="container">
-
-      <div class="section-head reveal">
-        <h2>Certificates & Activities</h2>
-        <p>Highlights of achievements and learning certifications.</p>
-      </div>
-
-      <div class="cards-grid">
-        <div class="mini-card reveal">
-          <h3>Web Development Certificate</h3>
-          <p class="muted">HTML, CSS, JS fundamentals.</p>
-        </div>
-        <div class="mini-card reveal">
-          <h3>Bootstrap UI Training</h3>
-          <p class="muted">Modern layouts & responsive components.</p>
-        </div>
-        <div class="mini-card reveal">
-          <h3>Hackathon / Activity</h3>
-          <p class="muted">Participated in college tech events.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== Projects ===== -->
-  <section class="section" id="projects">
-    <div class="container">
-
       <div class="section-head reveal">
         <h2>Projects</h2>
-        <p>Some of my best projects with real UI polish and clean code.</p>
+        <p>Selected projects that show practical UI and frontend development skills.</p>
       </div>
 
-      <!-- Filter Buttons -->
       <div class="filters reveal" id="filters"></div>
-
-      <!-- Project Grid -->
       <div class="projects-grid" id="projectsGrid"></div>
-
     </div>
   </section>
 
-  <!-- ===== Testimonials ===== -->
-  <section class="section alt" id="testimonials">
-    <div class="container">
-
-      <div class="section-head reveal">
-        <h2>Testimonials</h2>
-        <p>What clients and teammates say about my work.</p>
-      </div>
-
-      <div class="testimonials-grid">
-        <div class="testimonial reveal">
-          <p>
-            “Excellent UI skills. The site looks professional and works smoothly on mobile.”
-          </p>
-          <h4>Client A</h4>
-          <span class="muted">Business Owner</span>
-        </div>
-
-        <div class="testimonial reveal">
-          <p>
-            “Fast delivery and clean code. Highly recommended for frontend websites.”
-          </p>
-          <h4>Client B</h4>
-          <span class="muted">Startup Founder</span>
-        </div>
-
-        <div class="testimonial reveal">
-          <p>
-            “Very detail oriented. The redesign made our website look premium and modern.”
-          </p>
-          <h4>Client C</h4>
-          <span class="muted">Marketing Team</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== Contact ===== -->
   <section class="section" id="contact">
     <div class="container">
-
       <div class="section-head reveal">
         <h2>Contact</h2>
-        <p>Let's work together. Send me a message.</p>
+        <p>Open to freelance work and frontend opportunities.</p>
       </div>
 
       <div class="contact-grid">
         <div class="contact-card reveal">
           <h3>Contact Info</h3>
-          <p class="muted">Available for freelance & jobs.</p>
+          <p class="muted">Available for freelance projects and full-time roles.</p>
 
           <div class="contact-info">
             <p><strong>Email:</strong> yourmail@gmail.com</p>
@@ -326,76 +200,64 @@
           </div>
 
           <div class="social-links">
-            <a href="#" target="_blank">GitHub</a>
-            <a href="#" target="_blank">LinkedIn</a>
-            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="#" target="_blank" rel="noreferrer">Instagram</a>
           </div>
         </div>
 
         <form class="contact-form reveal" id="contactForm">
           <label>
             Name
-            <input type="text" placeholder="Your Name" required />
+            <input type="text" placeholder="Your Name" required>
           </label>
-
           <label>
             Email
-            <input type="email" placeholder="Your Email" required />
+            <input type="email" placeholder="Your Email" required>
           </label>
-
           <label>
             Message
             <textarea rows="5" placeholder="Write message..." required></textarea>
           </label>
 
           <button class="btn btn-primary" type="submit">Send Message</button>
-          <p class="form-note muted">This is demo form (JS). Later you can connect backend.</p>
+          <p class="form-note muted">Demo form for UI preview. Backend integration can be added later.</p>
         </form>
       </div>
-
     </div>
   </section>
 
-  <!-- ===== Footer ===== -->
   <footer class="footer">
     <div class="container footer-grid">
-      <p>© <span id="year"></span> Raju. All rights reserved.</p>
+      <p>&copy; <span id="year"></span> Raju. All rights reserved.</p>
       <div class="footer-social">
-        <a href="#" target="_blank">GitHub</a>
-        <a href="#" target="_blank">LinkedIn</a>
-        <a href="#" target="_blank">Email</a>
+        <a href="#https://github.com/Niroda19Gosami" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="#" target="_blank" rel="noreferrer">Email</a>
       </div>
     </div>
   </footer>
 
-  <!-- Scroll to Top -->
-  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to Top">↑</button>
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to Top">&#8593;</button>
 
-  <!-- Project Modal -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" role="dialog" aria-modal="true">
-      <button class="modal-close" id="modalClose">✕</button>
+      <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
 
       <img class="modal-image" id="modalImage" alt="Project Preview">
 
       <div class="modal-body">
         <h3 id="modalTitle"></h3>
         <p id="modalDesc"></p>
-
         <div class="modal-tags" id="modalTags"></div>
-
         <div class="modal-actions">
-          <a class="btn btn-primary" id="modalLive" href="#" target="_blank">Live</a>
-          <a class="btn btn-outline" id="modalGit" href="#" target="_blank">GitHub</a>
+          <a class="btn btn-primary" id="modalLive" href="#" target="_blank" rel="noreferrer">Live</a>
+          <a class="btn btn-outline" id="modalGit" href="#" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
     </div>
   </div>
 
-<!-- bootstrap js -->
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> -->
-    <!-- custom js -->
-    <script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>

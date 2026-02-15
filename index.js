@@ -1,88 +1,90 @@
 /* =========================================
-   Simple DOM JavaScript (No libs, no strict)
-   Portfolio: Web Developer
+   Portfolio JS
    ========================================= */
 
-/* ---------- Helper ---------- */
 function qs(selector) {
   return document.querySelector(selector);
 }
+
 function qsa(selector) {
   return document.querySelectorAll(selector);
 }
 
-/* ---------- Theme Toggle ---------- */
-var themeToggleBtn = qs("#themeToggle");
+var themeToggleBtn = qs('#themeToggle');
 
 function setTheme(mode) {
-  if (mode === "dark") {
-    document.body.classList.add("dark");
-    themeToggleBtn.textContent = "☀️";
-    localStorage.setItem("theme", "dark");
+  if (mode === 'dark') {
+    document.body.classList.add('dark');
+    if (themeToggleBtn) themeToggleBtn.textContent = '\u2600';
+    localStorage.setItem('theme', 'dark');
   } else {
-    document.body.classList.remove("dark");
-    themeToggleBtn.textContent = "🌙";
-    localStorage.setItem("theme", "light");
+    document.body.classList.remove('dark');
+    if (themeToggleBtn) themeToggleBtn.textContent = '\u263E';
+    localStorage.setItem('theme', 'light');
   }
 }
 
-var savedTheme = localStorage.getItem("theme");
-if (savedTheme === "dark") setTheme("dark");
+var savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  setTheme('dark');
+} else {
+  setTheme('light');
+}
 
-themeToggleBtn.addEventListener("click", function () {
-  var isDark = document.body.classList.contains("dark");
-  setTheme(isDark ? "light" : "dark");
-});
-
-/* ---------- Mobile Menu ---------- */
-var hamburgerBtn = qs("#hamburger");
-var mobileMenu = qs("#mobileMenu");
-
-hamburgerBtn.addEventListener("click", function () {
-  var isOpen = mobileMenu.style.display === "block";
-  mobileMenu.style.display = isOpen ? "none" : "block";
-});
-
-qsa("#mobileMenu a").forEach(function (link) {
-  link.addEventListener("click", function () {
-    mobileMenu.style.display = "none";
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', function () {
+    var isDark = document.body.classList.contains('dark');
+    setTheme(isDark ? 'light' : 'dark');
   });
-});
+}
 
-/* ---------- Footer Year ---------- */
-var yearEl = qs("#year");
+var hamburgerBtn = qs('#hamburger');
+var mobileMenu = qs('#mobileMenu');
+
+if (hamburgerBtn && mobileMenu) {
+  hamburgerBtn.addEventListener('click', function () {
+    var isOpen = mobileMenu.style.display === 'block';
+    mobileMenu.style.display = isOpen ? 'none' : 'block';
+  });
+
+  qsa('#mobileMenu a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      mobileMenu.style.display = 'none';
+    });
+  });
+}
+
+var yearEl = qs('#year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ---------- Scroll To Top ---------- */
-var scrollTopBtn = qs("#scrollTopBtn");
+var scrollTopBtn = qs('#scrollTopBtn');
+if (scrollTopBtn) {
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 450) {
+      scrollTopBtn.classList.add('show');
+    } else {
+      scrollTopBtn.classList.remove('show');
+    }
+  });
 
-window.addEventListener("scroll", function () {
-  if (window.scrollY > 450) {
-    scrollTopBtn.classList.add("show");
-  } else {
-    scrollTopBtn.classList.remove("show");
-  }
-});
+  scrollTopBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
-scrollTopBtn.addEventListener("click", function () {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-/* ---------- Reveal on Scroll ---------- */
-var revealEls = qsa(".reveal");
+var revealEls = qsa('.reveal');
 
 function initReveal() {
-  // Fallback if IntersectionObserver not supported
-  if (!("IntersectionObserver" in window)) {
+  if (!('IntersectionObserver' in window)) {
     revealEls.forEach(function (el) {
-      el.classList.add("show");
+      el.classList.add('show');
     });
-    return;
+    return null;
   }
 
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
-      if (entry.isIntersecting) entry.target.classList.add("show");
+      if (entry.isIntersecting) entry.target.classList.add('show');
     });
   }, { threshold: 0.15 });
 
@@ -95,91 +97,111 @@ function initReveal() {
 
 var revealObserver = initReveal();
 
-/* ---------- Active Nav Link Highlight ---------- */
-var sections = qsa("section[id]");
-var navLinks = qsa(".menu a");
+var sections = qsa('section[id]');
+var navLinks = qsa('.menu a');
 
-window.addEventListener("scroll", function () {
-  var scrollPos = window.scrollY;
+if (sections.length && navLinks.length) {
+  window.addEventListener('scroll', function () {
+    var scrollPos = window.scrollY;
+    var currentId = '';
 
-  var currentId = "";
-  sections.forEach(function (sec) {
-    var top = sec.offsetTop - 110;
-    var height = sec.offsetHeight;
+    sections.forEach(function (sec) {
+      var top = sec.offsetTop - 110;
+      var height = sec.offsetHeight;
 
-    if (scrollPos >= top && scrollPos < top + height) {
-      currentId = sec.getAttribute("id");
-    }
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = sec.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(function (link) {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + currentId) {
+        link.classList.add('active');
+      }
+    });
   });
+}
 
-  navLinks.forEach(function (link) {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + currentId) {
-      link.classList.add("active");
-    }
-  });
-});
-
-/* ---------- Projects Data ---------- */
 var projects = [
   {
     id: 1,
-    title: "E-Commerce Electronics UI",
-    category: "Web",
-    desc: "Modern e-commerce UI with category filters, product cards and clean responsive layout.",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop",
-    tags: ["HTML", "CSS", "JS", "Bootstrap"],
-    live: "https://example.com",
-    github: "https://github.com/"
+    title: 'E-Commerce Electronics UI',
+    category: 'Web',
+    desc: 'Modern e-commerce UI with category filters, product cards and clean responsive layout.',
+    image: './images/electro mart.png',
+    tags: ['HTML', 'CSS', 'JS', 'Bootstrap'],
+    live: 'https://niroda19gosami.github.io/ElectroMart---Electronics-Store/',
+    github: 'https://github.com/Niroda19Gosami/ElectroMart---Electronics-Store'
   },
   {
     id: 2,
-    title: "Portfolio Landing Page",
-    category: "UI",
-    desc: "Minimal portfolio design with premium typography, smooth scroll and polished sections.",
-    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop",
-    tags: ["HTML", "CSS", "JavaScript"],
-    live: "https://example.com",
-    github: "https://github.com/"
+    title: 'Portfolio Landing Page',
+    category: 'UI',
+    desc: 'Minimal portfolio design with premium typography, smooth scroll and polished sections.',
+    image: './images/portfolio-code.png',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    live: 'https://niroda19gosami.github.io/myproTfolio/',
+    github: 'https://github.com/Niroda19Gosami/myproTfolio'
   },
   {
     id: 3,
-    title: "Admin Dashboard",
-    category: "Web",
-    desc: "Dashboard UI with side navigation, card layout and structured admin components.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
-    tags: ["UI", "Frontend", "CSS"],
-    live: "https://example.com",
-    github: "https://github.com/"
+    title: 'Bengali Weeding',
+    category: 'Web',
+    desc: 'Weeding service UI with side navigation, card layout and structured components.',
+    image: './images/Bengali-Weeding.png',
+    tags: ['UI', 'Frontend', 'CSS'],
+    live: 'https://niroda19gosami.github.io/THE-Bengali-events--Bengali-weeding/',
+    github: 'https://github.com/Niroda19Gosami/THE-Bengali-events--Bengali-weeding'
   },
   {
     id: 4,
-    title: "Restaurant Website",
-    category: "UI",
-    desc: "Restaurant website UI with menu cards, reservation form, gallery and contact section.",
-    image: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?q=80&w=1200&auto=format&fit=crop",
-    tags: ["HTML", "CSS"],
-    live: "https://example.com",
-    github: "https://github.com/"
+    title: 'Restaurant Website',
+    category: 'UI',
+    desc: 'Bengali Restaurant website UI with Menu gallery, Add to cart, Place order and Contact section.',
+    image: './images/Restrurent.png',
+    tags: ['HTML', 'CSS'],
+    live: 'https://niroda19gosami.github.io/--BENGALI--CUISINE-RESTRURENT-/',
+    github: 'https://github.com/Niroda19Gosami/--BENGALI--CUISINE-RESTRURENT-'
   },
   {
     id: 5,
-    title: "JS Mini Apps",
-    category: "JavaScript",
-    desc: "Mini apps like Todo, Calculator and Quiz built with DOM manipulation + LocalStorage.",
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop",
-    tags: ["JavaScript", "DOM", "LocalStorage"],
-    live: "https://example.com",
-    github: "https://github.com/"
+    title: 'Hotel Booking website',
+    category: 'Web',
+    desc: 'Hotel Booking website multi page-UI with Room Menu gallery, reservation, place order and contact section.',
+    image: './images/hotel-booking.png',
+    tags: ['HTML', 'CSS'],
+    live: 'https://niroda19gosami.github.io/HILLWOOD-hoteL-booking-website./',
+    github: 'https://github.com/Niroda19Gosami/HILLWOOD-hoteL-booking-website.'
+  },
+  {
+    id: 6,
+    title: 'JS Mini Apps',
+    category: 'JavaScript',
+    desc: 'Mini apps like Todo, Calculator and Quiz built with DOM manipulation and LocalStorage.',
+    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop',
+    tags: ['JavaScript', 'DOM', 'LocalStorage'],
+    live: 'https://example.com',
+    github: 'https://github.com/'
   }
 ];
 
-/* ---------- Projects Render + Filters ---------- */
-var filtersEl = qs("#filters");
-var projectsGrid = qs("#projectsGrid");
+var filtersEl = qs('#filters');
+var projectsGrid = qs('#projectsGrid');
+
+function normalizeUrl(url) {
+  if (!url || typeof url !== 'string') return '#';
+
+  var trimmed = url.trim();
+  if (!trimmed) return '#';
+
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+
+  return 'https://' + trimmed.replace(/^\/+/, '');
+}
 
 function getCategories() {
-  var cats = ["All"];
+  var cats = ['All'];
   projects.forEach(function (p) {
     if (!cats.includes(p.category)) cats.push(p.category);
   });
@@ -187,24 +209,27 @@ function getCategories() {
 }
 
 function renderFilters() {
+  if (!filtersEl) return;
+
   var categories = getCategories();
-  var html = "";
+  var html = '';
 
   categories.forEach(function (cat, index) {
-    html += '<button class="filter-btn ' + (index === 0 ? "active" : "") +
-      '" data-cat="' + cat + '">' + cat + "</button>";
+    html += '<button class="filter-btn ' + (index === 0 ? 'active' : '') + '" data-cat="' + cat + '">' + cat + '</button>';
   });
 
   filtersEl.innerHTML = html;
 
-  // Bind events
-  qsa(".filter-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      qsa(".filter-btn").forEach(function (b) { b.classList.remove("active"); });
-      btn.classList.add("active");
+  qsa('.filter-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      qsa('.filter-btn').forEach(function (b) {
+        b.classList.remove('active');
+      });
 
-      var selected = btn.getAttribute("data-cat");
-      var list = selected === "All" ? projects : projects.filter(function (p) {
+      btn.classList.add('active');
+
+      var selected = btn.getAttribute('data-cat');
+      var list = selected === 'All' ? projects : projects.filter(function (p) {
         return p.category === selected;
       });
 
@@ -214,118 +239,129 @@ function renderFilters() {
 }
 
 function renderProjects(list) {
-  var html = "";
+  if (!projectsGrid) return;
+
+  var html = '';
 
   list.forEach(function (p) {
+    var liveUrl = normalizeUrl(p.live);
+
     html +=
       '<article class="project-card reveal">' +
-        '<div class="project-thumb">' +
-          '<img src="' + p.image + '" alt="' + p.title + '">' +
-        "</div>" +
-        '<div class="project-body">' +
-          "<h3>" + p.title + "</h3>" +
-          "<p>" + p.desc.substring(0, 92) + "...</p>" +
-          '<div class="project-actions">' +
-            '<button class="btn btn-outline open-modal" ' +
-              'data-title="' + p.title + '" ' +
-              'data-desc="' + p.desc + '" ' +
-              'data-image="' + p.image + '" ' +
-              'data-tags="' + p.tags.join(",") + '" ' +
-              'data-live="' + p.live + '" ' +
-              'data-github="' + p.github + '">' +
-              "View" +
-            "</button>" +
-            '<a class="btn btn-primary" href="' + p.live + '" target="_blank">Live</a>' +
-          "</div>" +
-        "</div>" +
-      "</article>";
+      '<div class="project-thumb">' +
+      '<img src="' + p.image + '" alt="' + p.title + '">' +
+      '</div>' +
+      '<div class="project-body">' +
+      '<h3>' + p.title + '</h3>' +
+      '<p>' + p.desc.substring(0, 92) + '...</p>' +
+      '<div class="project-actions">' +
+      '<button class="btn btn-outline open-modal" data-id="' + p.id + '">' +
+      'View' +
+      '</button>' +
+      '<a class="btn btn-primary" href="' + liveUrl + '" target="_blank" rel="noopener noreferrer">Live</a>' +
+      '</div>' +
+      '</div>' +
+      '</article>';
   });
 
   projectsGrid.innerHTML = html;
 
-  // Re-observe reveal animations for new elements
   if (revealObserver) {
-    qsa("#projectsGrid .reveal").forEach(function (el) {
+    qsa('#projectsGrid .reveal').forEach(function (el) {
       revealObserver.observe(el);
     });
   } else {
-    qsa("#projectsGrid .reveal").forEach(function (el) {
-      el.classList.add("show");
+    qsa('#projectsGrid .reveal').forEach(function (el) {
+      el.classList.add('show');
     });
   }
 
   bindModalButtons();
 }
 
-/* ---------- Project Modal ---------- */
-var modalOverlay = qs("#modalOverlay");
-var modalCloseBtn = qs("#modalClose");
-var modalImage = qs("#modalImage");
-var modalTitle = qs("#modalTitle");
-var modalDesc = qs("#modalDesc");
-var modalTags = qs("#modalTags");
-var modalLive = qs("#modalLive");
-var modalGit = qs("#modalGit");
+var modalOverlay = qs('#modalOverlay');
+var modalCloseBtn = qs('#modalClose');
+var modalImage = qs('#modalImage');
+var modalTitle = qs('#modalTitle');
+var modalDesc = qs('#modalDesc');
+var modalTags = qs('#modalTags');
+var modalLive = qs('#modalLive');
+var modalGit = qs('#modalGit');
 
 function openModal(data) {
-  modalImage.src = data.image;
-  modalTitle.textContent = data.title;
-  modalDesc.textContent = data.desc;
+  if (!modalOverlay) return;
 
-  // Tags
-  var tagsHtml = "";
-  data.tags.split(",").forEach(function (t) {
-    tagsHtml += "<span>" + t.trim() + "</span>";
-  });
-  modalTags.innerHTML = tagsHtml;
+  var liveUrl = normalizeUrl(data.live);
+  var githubUrl = normalizeUrl(data.github);
 
-  modalLive.href = data.live;
-  modalGit.href = data.github;
+  if (modalImage) modalImage.src = data.image || '';
+  if (modalTitle) modalTitle.textContent = data.title;
+  if (modalDesc) modalDesc.textContent = data.desc;
 
-  modalOverlay.classList.add("active");
-  document.body.style.overflow = "hidden";
+  if (modalTags) {
+    var tagsHtml = '';
+    var tags = Array.isArray(data.tags)
+      ? data.tags
+      : String(data.tags || '').split(',');
+
+    tags.forEach(function (t) {
+      tagsHtml += '<span>' + t.trim() + '</span>';
+    });
+    modalTags.innerHTML = tagsHtml;
+  }
+
+  if (modalLive) modalLive.href = liveUrl;
+  if (modalGit) modalGit.href = githubUrl;
+
+  modalOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
-  modalOverlay.classList.remove("active");
-  document.body.style.overflow = "auto";
+  if (!modalOverlay) return;
+
+  modalOverlay.classList.remove('active');
+  document.body.style.overflow = 'auto';
 }
 
 function bindModalButtons() {
-  qsa(".open-modal").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      openModal({
-        title: btn.getAttribute("data-title"),
-        desc: btn.getAttribute("data-desc"),
-        image: btn.getAttribute("data-image"),
-        tags: btn.getAttribute("data-tags"),
-        live: btn.getAttribute("data-live"),
-        github: btn.getAttribute("data-github")
+  qsa('.open-modal').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var projectId = Number(btn.getAttribute('data-id'));
+      var project = projects.find(function (item) {
+        return item.id === projectId;
       });
+
+      if (!project) return;
+      openModal(project);
     });
   });
 }
 
-modalCloseBtn.addEventListener("click", closeModal);
+if (modalCloseBtn) {
+  modalCloseBtn.addEventListener('click', closeModal);
+}
 
-modalOverlay.addEventListener("click", function (e) {
-  if (e.target === modalOverlay) closeModal();
+if (modalOverlay) {
+  modalOverlay.addEventListener('click', function (e) {
+    if (e.target === modalOverlay) closeModal();
+  });
+}
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
+    closeModal();
+  }
 });
 
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && modalOverlay.classList.contains("active")) closeModal();
-});
-
-/* ---------- Contact Form Demo ---------- */
-var contactForm = qs("#contactForm");
+var contactForm = qs('#contactForm');
 if (contactForm) {
-  contactForm.addEventListener("submit", function (e) {
+  contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    alert("Message sent successfully ✅");
+    alert('Message sent successfully.');
     contactForm.reset();
   });
 }
 
-/* ---------- Init ---------- */
 renderFilters();
 renderProjects(projects);
