@@ -199,8 +199,25 @@
   .cv-card,
   .contact-card,
   .contact-form,
+  .project-card,
   .project-body {
+    width: 100%;
+    min-width: 0;
     padding: 18px;
+  }
+
+  .cv-card h3,
+  .cv-card h4,
+  .cv-card p,
+  .cv-card li,
+  .contact-card p,
+  .contact-card a,
+  .contact-form label,
+  .project-body p,
+  .tags span {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
   }
 
   .modal-body {
@@ -216,3 +233,4 @@
     height: 42px;
   }
 }
+

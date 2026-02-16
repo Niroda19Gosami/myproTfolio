@@ -377,7 +377,7 @@ body.dark .header {
   border-radius: var(--radius);
   background: var(--surface);
   box-shadow: var(--shadow);
-  padding: 24px;
+  padding: 20px;
 }
 
 .cv-card h3 {
@@ -432,7 +432,7 @@ body.dark .header {
   background: var(--tint);
   padding: 14px 14px 14px 16px;
   display: grid;
-  gap: 6px;
+  row-gap: 6px;
 }
 
 .muted {

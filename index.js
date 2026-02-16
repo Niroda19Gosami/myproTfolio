@@ -176,13 +176,33 @@ var projects = [
   },
   {
     id: 6,
+    title: 'SKILL or BUILD-service website',
+    category: 'Web',
+    desc: 'skill or build with us- service website for student and business owner, want learn or build up with us',
+    image: './images/skill up-mulit.png',
+    tags: ['HTML', 'CSS', 'JS', '[multi-step-from]'],
+    live: 'https://niroda19gosami.github.io/service-booking-multistep-from/',
+    github: 'https://github.com/Niroda19Gosami/service-booking-multistep-from'
+  },
+  {
+    id: 7,
+    title: 'Agro-mart Mushroom-farm',
+    category: 'Web',
+    desc: 'FRESH Mashromm, Direct form fram to your home, place order and contact section.',
+    image: './images/Agro-mart.png',
+    tags: ['HTML', 'CSS', 'JS', 'LocalStorage'],
+    live: 'https://niroda19gosami.github.io/HILLWOOD-hoteL-booking-website./',
+    github: 'https://github.com/Niroda19Gosami/AGRO-mart'
+  },
+  {
+    id: 8,
     title: 'JS Mini Apps',
     category: 'JavaScript',
-    desc: 'Mini apps like Todo, Calculator and Quiz built with DOM manipulation and LocalStorage.',
-    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop',
+    desc: 'WIDGET_HUB_all daliy life use all apps in one, built with DOM manipulation and LocalStorage.',
+    image: './images/js-mini-apps.png',
     tags: ['JavaScript', 'DOM', 'LocalStorage'],
-    live: 'https://example.com',
-    github: 'https://github.com/'
+    live: 'https://niroda19gosami.github.io/Widget_HUB--JS_MINI_APPS-/',
+    github: 'https://github.com/Niroda19Gosami/Widget_HUB--JS_MINI_APPS-'
   }
 ];
 
