@@ -149,7 +149,7 @@ var projects = [
     title: 'Bengali Weeding',
     category: 'Web',
     desc: 'Weeding service UI with side navigation, card layout and structured components.',
-    image: './images/Bengali-Weeding.png',
+    image: './images/bengali-Weeding.png',
     tags: ['UI', 'Frontend', 'CSS'],
     live: 'https://niroda19gosami.github.io/THE-Bengali-events--Bengali-weeding/',
     github: 'https://github.com/Niroda19Gosami/THE-Bengali-events--Bengali-weeding'
@@ -177,7 +177,7 @@ var projects = [
   {
     id: 6,
     title: 'SKILL or BUILD-service website',
-    category: 'Web',
+    category: 'UI',
     desc: 'skill or build with us- service website for student and business owner, want learn or build up with us',
     image: './images/skill up-mulit.png',
     tags: ['HTML', 'CSS', 'JS', '[multi-step-from]'],
