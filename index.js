@@ -191,7 +191,7 @@ var projects = [
     desc: 'FRESH Mashromm, Direct form fram to your home, place order and contact section.',
     image: './images/Agro-mart.png',
     tags: ['HTML', 'CSS', 'JS', 'LocalStorage'],
-    live: 'https://niroda19gosami.github.io/HILLWOOD-hoteL-booking-website./',
+    live: 'https://niroda19gosami.github.io/AGRO-mart/',
     github: 'https://github.com/Niroda19Gosami/AGRO-mart'
   },
   {
